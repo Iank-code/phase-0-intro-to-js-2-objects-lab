@@ -18,12 +18,30 @@ updateEmployeeWithKeyAndValue(employee, "sam", "1")
 
 
 
-// function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value){
-//     employee.name = key
-//     employee.streetAddress = value
-//     return employee
-// }
-// destructivelyUpdateEmployeeWithKeyAndValue(employee, "Sam", "12 Broadway")
+// does not modify the 
+// original employee (it is non-destructive)
+// and also
+// deletes `key` from a clone of employee and 
+// returns the new employee (it is non-destructive)
+
+function deleteFromEmployeeByKey(employee, key){
+    const remEmployee = { ...employee }
+    let name = key
+    let newEmployee = delete remEmployee[name]
+    return {newEmployee}
+}
+deleteFromEmployeeByKey(employee, "John")
+
+
+
+
+function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value){
+    const newObj = { ...employee }
+    // newObj.name = key
+    // newObj["streetAddress"] = value
+    return {newObj}
+}
+destructivelyUpdateEmployeeWithKeyAndValue(...employee, "Sam", "12 Broadway")
 
 // const newEmployee = nondestructivelyUpdateObject(
 //     tuesdayMenu,
@@ -31,12 +49,9 @@ updateEmployeeWithKeyAndValue(employee, "sam", "1")
 //     "12 Broadway"
 // );
 
-
-
-// Dont know exactly what it does
-function deleteFromEmployeeByKey(employee, key){
+function destructivelyDeleteFromEmployeeByKey(employee, key){
     const remEmployee = { ...employee }
-    let newEmployee = delete remEmployee[key]
-    return newEmployee
+    remEmployee.name = undefined
+    return {remEmployee{}
 }
-deleteFromEmployeeByKey(employee, "John")
+destructivelyDeleteFromEmployeeByKey(employee, "Sam")
