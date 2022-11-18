@@ -35,23 +35,13 @@ deleteFromEmployeeByKey(employee, "John")
 
 
 
-function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value){
-    const newObj = { ...employee }
-    // newObj.name = key
-    // newObj["streetAddress"] = value
-    return {newObj}
+function destructivelyUpdateEmployeeWithKeyAndValue (employee, key, value) {
+    employee[key] = value;
+    return employee
 }
-destructivelyUpdateEmployeeWithKeyAndValue(...employee, "Sam", "12 Broadway")
 
-// const newEmployee = nondestructivelyUpdateObject(
-//     tuesdayMenu,
-//     "Sam",
-//     "12 Broadway"
-// );
 
-function destructivelyDeleteFromEmployeeByKey(employee, key){
-    const remEmployee = { ...employee }
-    remEmployee.name = undefined
-    return {remEmployee{}
+function destructivelyDeleteFromEmployeeByKey(employee, key) {
+    delete employee[key]
+    return employee
 }
-destructivelyDeleteFromEmployeeByKey(employee, "Sam")
